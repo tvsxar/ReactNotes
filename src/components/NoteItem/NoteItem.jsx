@@ -1,8 +1,8 @@
-import '../App.css';
+import './NoteItem.scss';
 import React from 'react'
-import menuImg from '../img/menu-outline.svg';
-import closeImg from '../img/close-circle.svg';
-import editImg from '../img/pencil-sharp.svg';
+import menuImg from '../../img/menu-outline.svg';
+import closeImg from '../../img/close-circle.svg';
+import editImg from '../../img/pencil-sharp.svg';
 
 function NoteItem({ title, description, month, day, year, removeItem, editItem }) {
 

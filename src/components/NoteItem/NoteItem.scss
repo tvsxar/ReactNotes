@@ -1,0 +1,106 @@
+.card {
+  height: 250px;
+  list-style: none;
+  background: #fff;
+  border-radius: 5px;
+  padding: 15px 20px 20px;
+
+  display: flex;
+  flex-direction: column;
+ justify-content: space-between;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.card-text {
+  font-size: 16px;
+}
+
+.add-card-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.add-btn {
+  height: 75px;
+  width: 75px;
+}
+
+.add-text {
+  font-weight: 500;
+  user-select: none;
+}
+
+.bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-top: 1px solid #a9a9a9;
+  padding-top: 10px;
+}
+
+.settings {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+}
+
+.settings-btn {
+  height: 20px;
+  width: 20px;
+}
+
+.menu {
+  position: absolute;
+  bottom: 0;
+  right: -5px;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+
+  width: 100px;
+  padding: 5px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  scale: 0;
+  transform-origin: bottom right;
+  transition: all .1s ease;
+}
+
+.settings:hover .menu {
+  scale: 1;
+}
+
+.menu li {
+  border-radius: 0;
+  cursor: pointer;
+  padding-left: 4px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  user-select: none;
+}
+
+.menu li:hover {
+  background: #ececec;
+  border-radius: 4px;
+}
+
+.menu span {
+  font-size: 14px;
+  margin-left: 5px;
+}

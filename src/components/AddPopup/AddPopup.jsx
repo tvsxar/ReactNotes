@@ -1,9 +1,8 @@
-import '../App.css';
-import closeImg from '../img/close-outline.svg';
+import './AddPopup.scss';
+import closeImg from '../../img/close-outline.svg';
 import React, { useEffect } from 'react';
 
 function AddPopup({ onAddNote, closePopup, editingNote, setEditingNote, setNotes, notes }) {
-
     const [title, setTitle] = React.useState('');
     const [description, setDescription] = React.useState('');
 
@@ -17,7 +16,7 @@ function AddPopup({ onAddNote, closePopup, editingNote, setEditingNote, setNotes
         }
     }, [editingNote])
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
 
         let currentDate = new Date();
@@ -32,10 +31,24 @@ function AddPopup({ onAddNote, closePopup, editingNote, setEditingNote, setNotes
         };
 
         if(editingNote) {
-            setNotes(notes.map(note => note === editingNote ? {...note, ...data} : note))
+            const updatedNote = await fetch(`https://672e7521229a881691f01d93.mockapi.io/notes/${editingNote.id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            })
+
+            const updatedData = await updatedNote.json();
+            setNotes(notes.map(note => note.id === editingNote.id ? updatedData : note))
             setEditingNote(null);
         } else {
-            onAddNote(data);
+            const newNote = await fetch('https://672e7521229a881691f01d93.mockapi.io/notes', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+            
+            const newNoteData = await newNote.json();
+            onAddNote(newNoteData); 
         }
 
         closePopup();

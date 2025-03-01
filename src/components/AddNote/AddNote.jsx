@@ -1,7 +1,7 @@
-import '../App.css';
+import './AddNote.scss';
 import React from 'react';
-import AddPopup from './AddPopup'
-import addImg from '../img/add-circle-outline.svg';
+import AddPopup from '../AddPopup/AddPopup'
+import addImg from '../../img/add-circle-outline.svg';
 
 function AddNote({ setNotes, isVisible, setIsVisible, editingNote, setEditingNote, notes }) {
 
